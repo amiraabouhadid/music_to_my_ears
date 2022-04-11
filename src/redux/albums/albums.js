@@ -2,7 +2,7 @@
 import AlbumService from '../../services/AlbumService';
 
 const TOP_ALBUMS_RETRIEVED = 'app/albums/TOP_ALBUMS_RETRIEVED';
-const ALBUM_IMAGE_RETRIEVED = 'app/albums/ALBUMS_IMAGE_RETRIEVED';
+const ALBUM_IMAGE_RETRIEVED = 'app/albums/ALBUM_IMAGE_RETRIEVED';
 const reducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
@@ -41,7 +41,7 @@ export const getAlbumImageActionCreator = (albumImage, albumId) => ({
 });
 export const getAlbumImage = (albumId) => async (dispatch) => {
   try {
-    const imagesRes = await AlbumService.getTopAlbumsImages(albumId);
+    const imagesRes = await AlbumService.getAlbumImage(albumId);
     const albumImage = imagesRes.data.images[0].url;
     dispatch(getAlbumImageActionCreator(albumImage, albumId));
     return Promise.resolve(imagesRes);

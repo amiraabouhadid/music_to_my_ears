@@ -15,7 +15,6 @@ function App() {
     <Router>
       <Header />
       <Routes>
-
         <Route exact path="/music_to_my_ears/" element={<Home albums={albums} />} />
 
       </Routes>

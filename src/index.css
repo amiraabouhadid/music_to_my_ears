@@ -1,3 +1,12 @@
+*{
+  overflow-y: auto;
+}
 .header-row{
-  background-color: rgb(238, 34, 129);
+  background-color: rgb(205,65,117);
+}
+.homepage{
+  background-color: rgb(248,81,147);
+}
+.dark-bg{
+  background-color: rgb(136,56,89);
 }
