@@ -38,21 +38,20 @@ const Album = ({ album, index, columnNo }) => {
         to={`/music_to_my_ears/${album.id}`}
         className="text-light"
       >
-
         <div className="text-end">
           <BsArrowRightCircle />
         </div>
-        <div className=" text-center">
-          <img src={album.imageUrl} alt={album.name} style={{ width: '100%' }} className="" />
+        <div className=" text-center" style={{ overflowX: 'hidden' }}>
+          <img src={album.imageUrl} alt={album.name} width="165" className="" />
         </div>
-        <div className="text-light  fw-bolder p-3">
-          <p className="float-end text-end" style={{ fontSize: '0.85rem', width: '85%' }}>
+        <div className="text-light  fw-bolder py-3">
+          <p className="float-end text-end" style={{ fontSize: '0.85rem', width: '100%' }}>
             {album.name.toUpperCase()}
-            <br />
-            <h5 className="text-end float-end pt-2 align-text-bottom">
-              {album.trackCount}
-            </h5>
           </p>
+          <br />
+          <h5 className="text-end float-end pt-2 align-text-bottom">
+            {album.trackCount}
+          </h5>
         </div>
 
       </Link>
