@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import AlbumService from '../../services/AlbumService';
 
 const ALBUMS_RETRIEVED = 'app/albums/ALBUMS_RETRIEVED';
@@ -9,14 +8,12 @@ const reducer = (state = [], action) => {
     case ALBUMS_RETRIEVED:
       return [...payload];
     case ALBUM_IMAGE_RETRIEVED:
-      const albumsWithImages = state.map((album) => {
+      return state.map((album) => {
         if (album.id !== payload.albumId) {
           return album;
         }
         return { ...album, imageUrl: payload.albumImage };
       });
-      return [...albumsWithImages];
-
     default:
       return state;
   }
