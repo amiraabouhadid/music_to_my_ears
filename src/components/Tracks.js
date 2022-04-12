@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsChevronCompactLeft } from 'react-icons/bs';

@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
@@ -60,5 +60,15 @@ const Album = ({
       </Link>
     </div>
   );
+};
+Album.propTypes = {
+  album:
+  PropTypes.instanceOf(Object).isRequired,
+  index:
+   PropTypes.instanceOf(Number).isRequired,
+  columnNo:
+    PropTypes.instanceOf(Number).isRequired,
+  criteria:
+    PropTypes.instanceOf(String).isRequired,
 };
 export default Album;

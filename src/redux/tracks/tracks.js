@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import TrackService from '../../services/TrackService';
 
 const TRACKS_RETRIEVED = 'app/tracks/TRACKS_RETRIEVED ';

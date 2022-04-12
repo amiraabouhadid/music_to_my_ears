@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { BsArrowRightCircle } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 const Track = ({ track, idx }) => (
   <div className={idx % 2 !== 0 ? 'dark-bg p-2' : 'p-2'}>
@@ -22,4 +22,10 @@ const Track = ({ track, idx }) => (
   </div>
 
 );
+Track.propTypes = {
+  track:
+    PropTypes.instanceOf(Object).isRequired,
+  idx:
+    PropTypes.instanceOf(Number).isRequired,
+};
 export default Track;

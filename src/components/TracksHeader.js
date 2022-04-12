@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TracksHeader = ({ album }) => (
   <>
@@ -19,4 +19,8 @@ const TracksHeader = ({ album }) => (
     </div>
   </>
 );
+TracksHeader.propTypes = {
+  album:
+    PropTypes.instanceOf(Object).isRequired,
+};
 export default TracksHeader;
