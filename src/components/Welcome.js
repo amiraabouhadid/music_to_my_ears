@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { AiFillCopyrightCircle } from 'react-icons/ai';
 
 const Welcome = () => {
   const links = [
@@ -22,7 +23,7 @@ const Welcome = () => {
     },
   ];
   return (
-    <div className="pink-bg text-light">
+    <div className="welcome-page text-light">
       <div className="p-5 text-center">
         <div className="pt-5">
           <h1>
@@ -41,6 +42,11 @@ const Welcome = () => {
           </div>
 
         ))}
+      </div>
+      <div className="dark-bg fixed-bottom p-3">
+        Amira Abouhadid
+        <AiFillCopyrightCircle />
+
       </div>
 
     </div>

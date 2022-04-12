@@ -13,6 +13,7 @@ const Tracks = () => {
   const tracks = useSelector((state) => state.tracks, shallowEqual);
   const location = useLocation();
   const album = location.state;
+  const criteria = location.pathname.split('/')[3];
 
   useEffect(() => {
     dispatch(getAlbumTracks(album.id));
@@ -24,7 +25,7 @@ const Tracks = () => {
         <div className="row header-row pt-2 text-white">
           <div className="col-4">
             <Link
-              to="/music_to_my_ears/"
+              to={`/music_to_my_ears/albums/${criteria}`}
               className="text-white fw-bold"
             >
               <BsChevronCompactLeft />
