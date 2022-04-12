@@ -37,6 +37,7 @@ const Album = ({ album, index, columnNo }) => {
       <Link
         to={`/music_to_my_ears/${album.id}`}
         className="text-light"
+        state={album}
       >
         <div className="text-end">
           <BsArrowRightCircle />

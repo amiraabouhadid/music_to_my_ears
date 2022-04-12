@@ -16,7 +16,7 @@ const Home = ({ albums }) => (
         </div>
       </div>
     </div>
-    <div className="conatiner-fluid homepage ">
+    <div className="conatiner-fluid pink-bg">
       <div className="row g-0">
         <div className="col-6">
 
