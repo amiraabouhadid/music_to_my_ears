@@ -5,7 +5,9 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import { getAlbumImage } from '../redux/albums/albums';
 
-const Album = ({ album, index, columnNo }) => {
+const Album = ({
+  album, index, columnNo, criteria,
+}) => {
   const dispatch = useDispatch();
   const albums = useSelector((state) => state.albums, shallowEqual);
 
@@ -35,7 +37,7 @@ const Album = ({ album, index, columnNo }) => {
 
     >
       <Link
-        to={`/music_to_my_ears/${album.id}`}
+        to={`/music_to_my_ears/albums/${criteria}/${album.id}`}
         className="text-light"
         state={album}
       >

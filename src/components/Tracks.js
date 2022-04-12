@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsChevronCompactLeft } from 'react-icons/bs';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -32,7 +32,9 @@ const Tracks = () => {
           </div>
           <div className="col-4 text-center"><p> Album Tracks</p></div>
           <div className="col-4 ">
-            <AiOutlineSearch className=" fw-bold float-end" />
+            <Link to="/music_to_my_ears/">
+              <GiHamburgerMenu className=" text-light float-end" />
+            </Link>
           </div>
         </div>
       </div>
