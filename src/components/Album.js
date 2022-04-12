@@ -52,9 +52,9 @@ const Album = ({
             {album.name.toUpperCase()}
           </p>
           <br />
-          <h5 className="text-end float-end pt-2 align-text-bottom">
-            {album.trackCount}
-          </h5>
+          <small className="text-end float-end pt-2 align-text-bottom">
+            {`${album.trackCount} tracks`}
+          </small>
         </div>
 
       </Link>
