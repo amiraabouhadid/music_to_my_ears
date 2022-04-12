@@ -63,7 +63,6 @@ export const getAlbums = (criteria) => async (dispatch) => {
 
       });
     });
-    console.log(albums);
     dispatch(getAlbumsActionCreator(albums));
     return Promise.resolve(res);
   } catch (err) {
