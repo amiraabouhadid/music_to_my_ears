@@ -1,17 +1,21 @@
 * {
-	overflow-y: auto;
+  overflow-y: auto;
 }
+
 .welcome-page {
-	background-color: rgb(248, 81, 147);
-	height: 100vh;
+  background-color: rgb(248, 81, 147);
+  height: 100vh;
 }
+
 .header-row {
-	background-color: rgb(205, 65, 117);
+  background-color: rgb(205, 65, 117);
 }
+
 .pink-bg {
-	background-color: rgb(248, 81, 147);
-	height: 95vh;
+  background-color: rgb(248, 81, 147);
+  height: 95vh;
 }
+
 .dark-bg {
-	background-color: rgb(136, 56, 89);
+  background-color: rgb(136, 56, 89);
 }
