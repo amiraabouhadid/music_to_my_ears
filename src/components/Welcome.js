@@ -28,9 +28,7 @@ const Welcome = () => {
     <div className="welcome-page text-light">
       <div className="p-4 dark-bg text-center">
         <FaMusic />
-        {' '}
         <GiMusicalScore />
-        {' '}
         <GiMusicalNotes />
         <h1>
           {'Music to my ears'.toUpperCase()}

@@ -1,6 +1,9 @@
 // import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 // import userEvent from '@testing-library/user-event';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -11,7 +14,9 @@ import tracks, {
   tracksLoading, tracksCleanUpActionCreator, getAlbumTracksActionCreator,
 } from './redux/tracks/tracks';
 import Welcome from './components/Welcome';
-// import App from './App';
+import Home from './components/Home';
+import TracksHeader from './components/TracksHeader';
+import TracksList from './components/TracksList';
 
 const rootReducer = combineReducers({
   albums,
@@ -22,8 +27,62 @@ const Store = createStore(
   rootReducer,
   applyMiddleware(thunk),
 );
+describe('Welcome', () => {
+  test('welcome page renders correctly', () => {
+    const welcomePage = renderer.create(
+      <Provider store={Store}>
+        <Router>
+          <Welcome />
+        </Router>
 
-describe('albums reducer', () => {
+      </Provider>,
+    ).toJSON();
+    expect(welcomePage).toMatchSnapshot();
+  });
+});
+describe('Home', () => {
+  test('home page renders correctly', () => {
+    const homePage = renderer.create(
+      <Provider store={Store}>
+        <Router>
+          <Home />
+        </Router>
+      </Provider>,
+    ).toJSON();
+    expect(homePage).toMatchSnapshot();
+  });
+});
+describe('Tracks ', () => {
+  test('tracks page header renders correctly', () => {
+    const albumProp = {
+      id: 1, name: 'album1', trackCount: 2, imageUrl: 'imgURL',
+    };
+    const tracksHeader = renderer.create(
+      <Provider store={Store}>
+        <Router>
+          <TracksHeader album={albumProp} />
+        </Router>
+      </Provider>,
+    ).toJSON();
+    expect(tracksHeader).toMatchSnapshot();
+  });
+  test('tracks list renders correctly', () => {
+    const tracksProp = [{
+      id: 1, name: 'track1', playbackSeconds: 200, previewUrl: 'previewURL',
+    }];
+    const tracksList = renderer.create(
+      <Provider store={Store}>
+        <Router>
+          <TracksList tracks={tracksProp} loadingStatus="idle" />
+        </Router>
+      </Provider>,
+    ).toJSON();
+
+    expect(tracksList).toMatchSnapshot();
+  });
+});
+
+describe('Albums Reducer', () => {
   test('should return the initial state', () => {
     expect(albums(undefined, {})).toEqual({
       status: 'idle',
@@ -70,7 +129,7 @@ describe('albums reducer', () => {
   });
 });
 
-describe('tracks reducer', () => {
+describe('Tracks Reducer', () => {
   test('should return the initial state', () => {
     expect(tracks(undefined, {})).toEqual({
       status: 'idle',
