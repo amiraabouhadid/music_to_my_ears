@@ -1,13 +1,15 @@
 import TrackService from '../../services/TrackService';
 
 const TRACKS_RETRIEVED = 'app/tracks/TRACKS_RETRIEVED ';
+const TRACKS_REMOVED = 'app/tracks/TRACKS_REMOVED';
 
 const reducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
     case TRACKS_RETRIEVED:
       return [...payload];
-
+    case TRACKS_REMOVED:
+      return [];
     default:
       return state;
   }
@@ -16,7 +18,9 @@ export const getAlbumTracksActionCreator = (albumTracks) => ({
   type: TRACKS_RETRIEVED,
   payload: albumTracks,
 });
-
+export const cleanUp = () => async (dispatch) => {
+  dispatch({ type: TRACKS_REMOVED });
+};
 export const getAlbumTracks = (albumId) => async (dispatch) => {
   try {
     const res = await TrackService.getAlbumTracks(albumId);

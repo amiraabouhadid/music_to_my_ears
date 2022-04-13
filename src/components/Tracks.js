@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsChevronCompactLeft } from 'react-icons/bs';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { getAlbumTracks } from '../redux/tracks/tracks';
+import { getAlbumTracks, cleanUp } from '../redux/tracks/tracks';
 import Track from './Track';
 import TracksHeader from './TracksHeader';
 
@@ -16,6 +16,9 @@ const Tracks = () => {
 
   useEffect(() => {
     dispatch(getAlbumTracks(album.id));
+    return () => {
+      dispatch(cleanUp());
+    };
   }, []);
 
   return (

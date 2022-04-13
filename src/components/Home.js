@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { BsChevronCompactLeft } from 'react-icons/bs';
 import Album from './Album';
 import { getAlbums, cleanUp } from '../redux/albums/albums';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const albums = useSelector((state) => state.albums);
+
   const location = useLocation();
   const criteria = location.pathname.split('/').pop();
   const title = location.pathname.split('/').pop();
@@ -17,6 +17,7 @@ const Home = () => {
       dispatch(cleanUp());
     };
   }, []);
+  const albums = useSelector((state) => state.albums, shallowEqual);
   const [name, setName] = useState('');
   const [foundAlbums, setFoundAlbums] = useState(albums);
   const filter = (e) => {

@@ -26,6 +26,6 @@ Track.propTypes = {
   track:
     PropTypes.instanceOf(Object).isRequired,
   idx:
-    PropTypes.instanceOf(Number).isRequired,
+    PropTypes.number.isRequired,
 };
 export default Track;
