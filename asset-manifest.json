@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/music_to_my_ears/static/css/main.c25c95df.css",
+    "main.js": "/music_to_my_ears/static/js/main.3ceb3cbb.js",
+    "index.html": "/music_to_my_ears/index.html",
+    "main.c25c95df.css.map": "/music_to_my_ears/static/css/main.c25c95df.css.map",
+    "main.3ceb3cbb.js.map": "/music_to_my_ears/static/js/main.3ceb3cbb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c25c95df.css",
+    "static/js/main.3ceb3cbb.js"
+  ]
+}
