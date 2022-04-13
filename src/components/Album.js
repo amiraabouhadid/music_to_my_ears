@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { BsArrowRightCircle } from 'react-icons/bs';
-import { getAlbumImage } from '../redux/albums/albums';
 
 const Album = ({
   album, index, columnNo, criteria,
 }) => {
-  const dispatch = useDispatch();
-  const albums = useSelector((state) => state.albums, shallowEqual);
-
-  const addImagesToAlbums = () => {
-    albums.forEach((album) => {
-      dispatch(getAlbumImage(album.id));
-    });
-  };
-  useEffect(() => {
-    addImagesToAlbums();
-  }, []);
   const isDarkBg = (index, columnNo) => {
     if (index % 2 === 0 && columnNo === '1') {
       return true;
@@ -65,10 +52,10 @@ Album.propTypes = {
   album:
   PropTypes.instanceOf(Object).isRequired,
   index:
-   PropTypes.instanceOf(Number).isRequired,
+  PropTypes.number.isRequired,
   columnNo:
-    PropTypes.instanceOf(Number).isRequired,
+  PropTypes.string.isRequired,
   criteria:
-    PropTypes.instanceOf(String).isRequired,
+  PropTypes.string.isRequired,
 };
 export default Album;

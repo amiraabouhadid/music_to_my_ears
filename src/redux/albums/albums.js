@@ -1,19 +1,15 @@
 import AlbumService from '../../services/AlbumService';
 
 const ALBUMS_RETRIEVED = 'app/albums/ALBUMS_RETRIEVED';
-const ALBUM_IMAGE_RETRIEVED = 'app/albums/ALBUM_IMAGE_RETRIEVED';
+const ALBUMS_REMOVED = 'app/albums/ALBUMS_REMOVED';
+
 const reducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
     case ALBUMS_RETRIEVED:
       return [...payload];
-    case ALBUM_IMAGE_RETRIEVED:
-      return state.map((album) => {
-        if (album.id !== payload.albumId) {
-          return album;
-        }
-        return { ...album, imageUrl: payload.albumImage };
-      });
+    case ALBUMS_REMOVED:
+      return [];
     default:
       return state;
   }
@@ -22,22 +18,23 @@ export const getAlbumsActionCreator = (albums) => ({
   type: ALBUMS_RETRIEVED,
   payload: albums,
 });
-export const getAlbumImageActionCreator = (albumImage, albumId) => ({
-  type: ALBUM_IMAGE_RETRIEVED,
-  payload: {
-    albumImage,
-    albumId,
-  },
-});
-export const getAlbumImage = (albumId) => async (dispatch) => {
-  try {
-    const imagesRes = await AlbumService.getAlbumImage(albumId);
-    const albumImage = imagesRes.data.images[0].url;
-    dispatch(getAlbumImageActionCreator(albumImage, albumId));
-    return Promise.resolve(imagesRes);
-  } catch (err) {
-    return Promise.reject(err);
-  }
+
+const getAlbumsData = async (data) => {
+  const albums = [];
+  data.forEach(async (element) => {
+    const imgRes = await AlbumService.getAlbumImage(element.id);
+    const imgUrl = imgRes.data.images[0].url;
+    albums.push({
+      id: element.id,
+      name: element.name,
+      trackCount: element.trackCount,
+      imageUrl: imgUrl,
+    });
+  });
+  return albums;
+};
+export const cleanUp = () => async (dispatch) => {
+  dispatch({ type: ALBUMS_REMOVED });
 };
 export const getAlbums = (criteria) => async (dispatch) => {
   let func;
@@ -50,17 +47,14 @@ export const getAlbums = (criteria) => async (dispatch) => {
   }
   try {
     const res = await func;
-    const albums = [];
+    const data = res.data.albums;
+    // add basic info
 
-    res.data.albums.forEach(async (element) => {
-      albums.push({
-        id: element.id,
-        name: element.name,
-        trackCount: element.trackCount,
+    const albums = await getAlbumsData(data);
+    setTimeout(async () => {
+      dispatch(getAlbumsActionCreator(albums));
+    }, 2000);
 
-      });
-    });
-    dispatch(getAlbumsActionCreator(albums));
     return Promise.resolve(res);
   } catch (err) {
     return Promise.reject(err);
