@@ -82,4 +82,4 @@ Give a ⭐️ if you like my portfolio!
 
 ## 📝 License
 
-- This project is [AGPL-3.0](./LICENSE) licensed.
+- This project is [AGPL-3.0](./LICENSE) and [CREATIVE-COMMONS](https://creativecommons.org/licenses/by-nc/4.0/) licensed.
