@@ -3,13 +3,16 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsChevronCompactLeft } from 'react-icons/bs';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 import { getAlbumTracks, cleanUp } from '../redux/tracks/tracks';
 import Track from './Track';
 import TracksHeader from './TracksHeader';
 
 const Tracks = () => {
   const dispatch = useDispatch();
-  const tracks = useSelector((state) => state.tracks, shallowEqual);
+  const tracks = useSelector((state) => state.tracks.entities, shallowEqual);
+  const loadingStatus = useSelector((state) => state.tracks.status, shallowEqual);
+
   const location = useLocation();
   const album = location.state;
   const criteria = location.pathname.split('/')[3];
@@ -52,9 +55,19 @@ const Tracks = () => {
             </small>
 
           </div>
-          {tracks.map((track, idx) => (
+          {loadingStatus === 'loading' ? (
+            <div className="py-5">
+              <div className="text-light text-center py-5 px-3">
+                <Spinner animation="grow" />
+                <h6>
+                  {'Fetching all the tracks...'.toUpperCase()}
+                </h6>
+              </div>
+            </div>
+          ) : (tracks.map((track, idx) => (
             <Track idx={idx} key={track.id} track={track} />
-          ))}
+          )))}
+
         </div>
 
       </div>

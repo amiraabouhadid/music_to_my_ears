@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { BsChevronCompactLeft } from 'react-icons/bs';
+import { Spinner } from 'react-bootstrap';
 import Album from './Album';
 import { getAlbums, cleanUp } from '../redux/albums/albums';
 
@@ -17,7 +18,9 @@ const Home = () => {
       dispatch(cleanUp());
     };
   }, []);
-  const albums = useSelector((state) => state.albums, shallowEqual);
+  const albums = useSelector((state) => state.albums.entities, shallowEqual);
+  const loadingStatus = useSelector((state) => state.albums.status, shallowEqual);
+
   const [name, setName] = useState('');
   const [foundAlbums, setFoundAlbums] = useState(albums);
   const filter = (e) => {
@@ -65,29 +68,44 @@ const Home = () => {
       </div>
       <div className="conatiner-fluid pink-bg">
         <div className="row g-0">
-          <div className="col-6">
-
-            {foundAlbums && foundAlbums.length > 0 ? (
-              foundAlbums.slice(0, foundAlbums.length / 2).map((a, index) => (
-                <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="1" />
-              ))
+          {loadingStatus === 'loading'
+            ? (
+              <div className="py-5 my-5">
+                <div className="text-light text-center py-5 my-5 px-3">
+                  <Spinner animation="grow" />
+                  <h5>
+                    {'Fetching all the awesome albums...'.toUpperCase()}
+                  </h5>
+                </div>
+              </div>
             ) : (
-              albums.slice(0, albums.length / 2).map((a, index) => (
-                <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="1" />
-              ))
-            )}
-          </div>
-          <div className="col-6">
+              <>
+                <div className="col-6">
 
-            {foundAlbums && foundAlbums.length > 0
-              ? (foundAlbums.slice(foundAlbums.length / 2).map((a, index) => (
-                <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="2" />
-              ))) : (
-                albums.slice(albums.length / 2).map((a, index) => (
-                  <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="2" />
-                ))
-              )}
-          </div>
+                  {foundAlbums && foundAlbums.length > 0 ? (
+                    foundAlbums.slice(0, foundAlbums.length / 2).map((a, index) => (
+                      <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="1" />
+                    ))
+                  ) : (
+                    albums.slice(0, albums.length / 2).map((a, index) => (
+                      <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="1" />
+                    ))
+                  )}
+                </div>
+                <div className="col-6">
+
+                  {foundAlbums && foundAlbums.length > 0
+                    ? (foundAlbums.slice(foundAlbums.length / 2).map((a, index) => (
+                      <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="2" />
+                    ))) : (
+                      albums.slice(albums.length / 2).map((a, index) => (
+                        <Album key={a.id} criteria={criteria} album={a} index={index} columnNo="2" />
+                      ))
+                    )}
+                </div>
+              </>
+            )}
+
         </div>
 
       </div>

@@ -2,14 +2,21 @@ import TrackService from '../../services/TrackService';
 
 const TRACKS_RETRIEVED = 'app/tracks/TRACKS_RETRIEVED ';
 const TRACKS_REMOVED = 'app/tracks/TRACKS_REMOVED';
+const TRACKS_LOADING = 'app/tracks/TRACKS_LOADING';
 
-const reducer = (state = [], action) => {
+const initialState = {
+  status: 'idle',
+  entities: [],
+};
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case TRACKS_LOADING:
+      return { ...state, status: 'loading' };
     case TRACKS_RETRIEVED:
-      return [...payload];
+      return { ...state, status: 'idle', entities: payload };
     case TRACKS_REMOVED:
-      return [];
+      return { ...state, entities: [] };
     default:
       return state;
   }
@@ -21,8 +28,10 @@ export const getAlbumTracksActionCreator = (albumTracks) => ({
 export const cleanUp = () => async (dispatch) => {
   dispatch({ type: TRACKS_REMOVED });
 };
+export const tracksLoading = () => ({ type: TRACKS_LOADING });
 export const getAlbumTracks = (albumId) => async (dispatch) => {
   try {
+    dispatch(tracksLoading());
     const res = await TrackService.getAlbumTracks(albumId);
     const albumTracks = [];
     res.data.tracks.forEach((element) => {

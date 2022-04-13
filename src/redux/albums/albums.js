@@ -2,14 +2,21 @@ import AlbumService from '../../services/AlbumService';
 
 const ALBUMS_RETRIEVED = 'app/albums/ALBUMS_RETRIEVED';
 const ALBUMS_REMOVED = 'app/albums/ALBUMS_REMOVED';
+const ALBUMS_LOADING = 'app/albums/ALBUMS_LOADING';
 
-const reducer = (state = [], action) => {
+const initialState = {
+  status: 'idle',
+  entities: [],
+};
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case ALBUMS_LOADING:
+      return { ...state, status: 'loading' };
     case ALBUMS_RETRIEVED:
-      return [...payload];
+      return { ...state, status: 'idle', entities: payload };
     case ALBUMS_REMOVED:
-      return [];
+      return { ...state, entities: [] };
     default:
       return state;
   }
@@ -36,6 +43,7 @@ const getAlbumsData = async (data) => {
 export const cleanUp = () => async (dispatch) => {
   dispatch({ type: ALBUMS_REMOVED });
 };
+export const albumsLoading = () => ({ type: ALBUMS_LOADING });
 export const getAlbums = (criteria) => async (dispatch) => {
   let func;
   if (criteria === 'top') {
@@ -51,6 +59,7 @@ export const getAlbums = (criteria) => async (dispatch) => {
     // add basic info
 
     const albums = await getAlbumsData(data);
+    dispatch(albumsLoading());
     setTimeout(async () => {
       dispatch(getAlbumsActionCreator(albums));
     }, 2000);
