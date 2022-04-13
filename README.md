@@ -70,6 +70,8 @@ $ git clone git@github.com:amiraabouhadid/music_to_my_ears.git.
 
 ## Contributors
 
+[Design](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio)
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/amiraabouhadid/music_to_my_ears/issues).
