@@ -6,11 +6,11 @@
 
 ## Screenshots 
 <div>
-<img src = 'https://user-images.githubusercontent.com/56790126/163241941-c757a4ea-eae3-4aa3-a403-eaf518fca544.png' alt='screenshot 1' style='width:32.5%'/>
+<img src = 'https://user-images.githubusercontent.com/56790126/163241941-c757a4ea-eae3-4aa3-a403-eaf518fca544.png' alt='screenshot 1' width='170'/>
 
-<img src= 'https://user-images.githubusercontent.com/56790126/163241942-c1ffb1f6-1b43-4390-b1a7-321a58afcf85.png' alt='screenshot 2' style='width:32.5%' />
+<img src= 'https://user-images.githubusercontent.com/56790126/163241942-c1ffb1f6-1b43-4390-b1a7-321a58afcf85.png' alt='screenshot 2' width='170' />
 
-<img src='https://user-images.githubusercontent.com/56790126/163241947-08c1a4e8-0ac0-40ad-b56c-52c8cea17b46.png' alt='screenshot 3' style='width:32.5%'/> 
+<img src='https://user-images.githubusercontent.com/56790126/163241947-08c1a4e8-0ac0-40ad-b56c-52c8cea17b46.png' alt='screenshot 3' width='170'/> 
 </div>
 ## Built With
 
