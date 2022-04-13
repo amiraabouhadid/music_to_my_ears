@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 import Track from './Track';
 
@@ -18,5 +18,10 @@ const TracksList = ({ tracks, loadingStatus }) => (
     )))}
   </>
 );
-
+TracksList.propTypes = {
+  tracks:
+    PropTypes.instanceOf(Array).isRequired,
+  loadingStatus:
+    PropTypes.string.isRequired,
+};
 export default TracksList;
