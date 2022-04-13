@@ -25,8 +25,9 @@ export const getAlbumTracksActionCreator = (albumTracks) => ({
   type: TRACKS_RETRIEVED,
   payload: albumTracks,
 });
+export const tracksCleanUpActionCreator = () => ({ type: TRACKS_REMOVED });
 export const cleanUp = () => async (dispatch) => {
-  dispatch({ type: TRACKS_REMOVED });
+  dispatch(tracksCleanUpActionCreator());
 };
 export const tracksLoading = () => ({ type: TRACKS_LOADING });
 export const getAlbumTracks = (albumId) => async (dispatch) => {

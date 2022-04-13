@@ -40,8 +40,11 @@ const getAlbumsData = async (data) => {
   });
   return albums;
 };
+export const cleanUpActionCreator = () => ({
+  type: ALBUMS_REMOVED,
+});
 export const cleanUp = () => async (dispatch) => {
-  dispatch({ type: ALBUMS_REMOVED });
+  dispatch(cleanUpActionCreator());
 };
 export const albumsLoading = () => ({ type: ALBUMS_LOADING });
 export const getAlbums = (criteria) => async (dispatch) => {
