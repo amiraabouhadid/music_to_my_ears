@@ -48,8 +48,8 @@ const Tracks = () => {
           album={album}
         />
         <div>
-          <div className="fw-bold text-white header-row">
-            <small className="p-1">
+          <div className="fw-bold text-white header-row" style={{ overflowY: 'hidden' }}>
+            <small className="">
               {'Album/ Tracks Breakdown'.toUpperCase()}
             </small>
 

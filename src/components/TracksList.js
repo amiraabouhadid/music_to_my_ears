@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import Track from './Track';
 
 const TracksList = ({ tracks, loadingStatus }) => (
-  <>
+  <div style={{ overflowY: 'hidden' }}>
     {loadingStatus === 'loading' ? (
       <div className="py-5">
         <div className="text-light text-center py-5 px-3">
@@ -16,7 +16,7 @@ const TracksList = ({ tracks, loadingStatus }) => (
     ) : (tracks.map((track, idx) => (
       <Track idx={idx} key={track.id} track={track} />
     )))}
-  </>
+  </div>
 );
 TracksList.propTypes = {
   tracks:

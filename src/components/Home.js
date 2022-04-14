@@ -67,7 +67,7 @@ const Home = () => {
         </div>
       </div>
       <div className="conatiner-fluid pink-bg">
-        <div className="row g-0">
+        <div style={{ overflowY: 'hidden' }} className="row g-0">
           {loadingStatus === 'loading'
             ? (
               <div className="py-5 my-5">
