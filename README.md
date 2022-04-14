@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Music to My Ears
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-## Available Scripts
+> A single page app where users can view top, new, and staff picks albums from Napster's API. Users can also view an album's tracks and even download and listen to a track preview!
 
-In the project directory, you can run:
+## Screenshots 
+<div class='text-center'>
+<img src = 'https://user-images.githubusercontent.com/56790126/163241941-c757a4ea-eae3-4aa3-a403-eaf518fca544.png' alt='screenshot 1' width='187.5'/>
 
-### `npm start`
+<img src= 'https://user-images.githubusercontent.com/56790126/163241942-c1ffb1f6-1b43-4390-b1a7-321a58afcf85.png' alt='screenshot 2' width='187.5' />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src='https://user-images.githubusercontent.com/56790126/163241947-08c1a4e8-0ac0-40ad-b56c-52c8cea17b46.png' alt='screenshot 3' width='187.5'/> 
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Built With
 
-### `npm test`
+- HTML5, CSS3
+- JavaScript ES6, React/Redux, Bootstrap
+- CLI, TDD, gh-pages, Gitflow
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live demo
 
-### `npm run build`
+You can visit live version via [link](https://amiraabouhadid.github.io/music_to_my_ears/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get a local copy up and running follow these simple example steps:
+- Open Terminal.
+- Change the current working directory to the location you want the cloned directory.
+- Enter the following:
+```
+$ git clone git@github.com:amiraabouhadid/music_to_my_ears.git.
+```
+- Press Enter to create your local clone.
+- Navigate to the cloned repository by running:
+    ```
+    $ cd music_to_my_ears
+    ```
+- Install all dependencies using:
+    ``` 
+    $ npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Run local server using:
+    ```
+    $ npm run build
+    $ npm start
+    ```
+- Run unit tests using:
+    ```
+    $ npm run test
 
-### `npm run eject`
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- GitHub
+- Git
+- Node.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Authors
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👤 **Amira Abouhadid**
 
-## Learn More
+- GitHub: [@amiraabouhadid](https://github.com/amiraabouhadid)
+- Twitter: [@AbouhadidAmira](https://twitter.com/AbouhadidAmira)
+- LinkedIn: [amira-abouhadid](https://www.linkedin.com/in/amira-abouhadid/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributors
 
-### Code Splitting
+[Design](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contributions, issues, and feature requests are welcome!
 
-### Analyzing the Bundle Size
+Feel free to check the [issues page](https://github.com/amiraabouhadid/music_to_my_ears/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Show your support
 
-### Making a Progressive Web App
+Give a ⭐️ if you like my portfolio!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📝 License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This project is [AGPL-3.0](./LICENSE) and [CREATIVE-COMMONS](https://creativecommons.org/licenses/by-nc/4.0/) licensed.

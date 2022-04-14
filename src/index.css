@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  overflow-y: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.welcome-page {
+  background-color: rgb(248, 81, 147);
+  height: 100vh;
+}
+
+.header-row {
+  background-color: rgb(205, 65, 117);
+}
+
+.pink-bg {
+  background-color: rgb(248, 81, 147);
+  height: 95vh;
+}
+
+.dark-bg {
+  background-color: rgb(136, 56, 89);
 }
